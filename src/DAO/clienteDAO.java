@@ -72,10 +72,11 @@ public class clienteDAO {
             
             while(rs.next()){
                     clienteDTO objclienteDTO = new clienteDTO();
-                    objclienteDTO.setNome_cliente(rs.getString("nome_cliente"));
-                    objclienteDTO.setCpf_cliente(rs.getString("cpf_cliente"));
-                    objclienteDTO.setEndereco_cliente(rs.getString("endereco_cliente"));
-                    objclienteDTO.setTelefone_cliente(rs.getString("telefone_cliente"));
+                    objclienteDTO.setId_cliente(rs.getInt("id_cliente"));
+                    objclienteDTO.setNome_cliente(rs.getNString("nome_cliente"));
+                    objclienteDTO.setCpf_cliente(rs.getNString("cpf_cliente"));
+                    objclienteDTO.setEndereco_cliente(rs.getNString("endereco_cliente"));
+                    objclienteDTO.setTelefone_cliente(rs.getNString("telefone_cliente"));
                     
                     lista.add(objclienteDTO);
             }
@@ -87,12 +88,12 @@ public class clienteDAO {
         }
         
         public void excluirCliente(clienteDTO objclienteDTO){
-        String sql="delete from tb_cliente where cpf_cliente=?";
+        String sql="delete from tb_cliente where id_cliente=?";
         conn = new conexaodaO().conectabD();
         
         try{
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objclienteDTO.getCpf_cliente());
+            pstm.setInt(1, objclienteDTO.getId_cliente());
             
             
             pstm.execute();

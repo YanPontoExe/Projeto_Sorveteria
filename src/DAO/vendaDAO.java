@@ -30,7 +30,7 @@ public class vendaDAO {
                 pstm.setInt(1, objvendaDTO.getId_venda());
                 pstm.setInt(2, objvendaDTO.getCod_funcionario());
                 pstm.setString(3, objvendaDTO.getData_venda());
-                pstm.setString(4, objvendaDTO.getCod_cliente());
+                pstm.setInt(4, objvendaDTO.getCod_cliente());
                 pstm.setString(5, objvendaDTO.getValor_venda());
                 pstm.setInt(6, objvendaDTO.getItem_venda());
                 pstm.setInt(7, objvendaDTO.getQtd_venda());
@@ -61,7 +61,7 @@ public class vendaDAO {
                     objvendaDTO.setId_venda(rs.getInt("id_venda"));
                     objvendaDTO.setCod_funcionario(rs.getInt("cod_funcionario"));
                     objvendaDTO.setData_venda(rs.getString("data_venda"));
-                    objvendaDTO.setCod_cliente(rs.getString("cod_cliente"));
+                    objvendaDTO.setCod_cliente(rs.getInt("cod_cliente"));
                     objvendaDTO.setItem_venda(rs.getInt("cod_sorvete"));
                     objvendaDTO.setQtd_venda(rs.getInt("qtd_venda"));
                     objvendaDTO.setValor_venda(rs.getString("valor_venda"));
@@ -84,7 +84,7 @@ public class vendaDAO {
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, objvendaDTO.getCod_funcionario());
-            pstm.setString(2, objvendaDTO.getCod_cliente());
+            pstm.setInt(2, objvendaDTO.getCod_cliente());
             pstm.setString(3, objvendaDTO.getData_venda());
             pstm.setString(4, objvendaDTO.getValor_venda());
             pstm.setInt(5, objvendaDTO.getItem_venda());
@@ -117,11 +117,14 @@ public class vendaDAO {
             JOptionPane.showMessageDialog(null, "VendaDAO Excluir: "+erro);
         }
     }
+        
+        
+        
      
         public ResultSet listarCodFun() {
             conn = new conexaodaO().conectabD();
 
-            String sql = "SELECT id_funcionario FROM tb_funcionario fun ORDER BY fun.id_funcionario";
+            String sql = "SELECT * FROM tb_funcionario fun ORDER BY fun.id_funcionario";
 
             try {
                 pstm = conn.prepareStatement(sql);
@@ -135,7 +138,7 @@ public class vendaDAO {
         public ResultSet listarItem() {
             conn = new conexaodaO().conectabD();
 
-            String sql = "SELECT id_sorvete, sabor_sorvete FROM tb_sorvete sor ORDER BY sor.sabor_sorvete";
+            String sql = "SELECT * FROM tb_sorvete sor ORDER BY sor.sabor_sorvete";
 
             try {
                 pstm = conn.prepareStatement(sql);

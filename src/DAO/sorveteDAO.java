@@ -64,12 +64,7 @@ public class sorveteDAO {
         return lista;
         }
         
-        
-        
-        
-        
-        
-        
+   
         public void alterarSorvete(sorveteDTO objsorveteDTO){
         String sql = "update tb_sorvete set preco_sorvete=?, sabor_sorvete=?  where id_sorvete=?";
         

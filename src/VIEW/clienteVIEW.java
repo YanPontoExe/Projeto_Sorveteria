@@ -59,6 +59,7 @@ public class clienteVIEW extends javax.swing.JFrame {
         txtCpf = new javax.swing.JFormattedTextField();
         txtTelefone = new javax.swing.JFormattedTextField();
         jButton4 = new javax.swing.JButton();
+        txt_id = new javax.swing.JTextField();
 
         txtId.setEnabled(false);
 
@@ -95,7 +96,7 @@ public class clienteVIEW extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Endereço", "Telefone"
+                "Id","Nome", "CPF", "Endereço", "Telefone"
             }
         ));
         jScrollPane1.setViewportView(tabelaCliente);
@@ -246,13 +247,17 @@ public class clienteVIEW extends javax.swing.JFrame {
             }
         });
 
+        txt_id.setText("jTextField1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(332, 332, 332)
+                .addGap(132, 132, 132)
+                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
@@ -264,7 +269,8 @@ public class clienteVIEW extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(208, 208, 208))
@@ -361,9 +367,6 @@ public class clienteVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnCarregarCampos;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -381,6 +384,7 @@ public class clienteVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtTelefone;
     private javax.swing.JTextField txtTelefone1;
+    private javax.swing.JTextField txt_id;
     // End of variables declaration//GEN-END:variables
 
     
@@ -446,6 +450,7 @@ public class clienteVIEW extends javax.swing.JFrame {
             
             for(int num=0; num<lista.size(); num++){
                 model.addRow(new Object[]{
+                        lista.get(num).getId_cliente(),
                         lista.get(num).getNome_cliente(),
                         lista.get(num).getCpf_cliente(),
                         lista.get(num).getEndereco_cliente(),
@@ -463,18 +468,19 @@ public class clienteVIEW extends javax.swing.JFrame {
     private void carregarCampos(){
         int setar = tabelaCliente.getSelectedRow();
         
-        txtNome.setText(tabelaCliente.getModel().getValueAt(setar, 0).toString());
-        txtCpf.setText(tabelaCliente.getModel().getValueAt(setar, 1).toString());
-        txtEndereco.setText(tabelaCliente.getModel().getValueAt(setar, 2).toString());
-        txtTelefone.setText(tabelaCliente.getModel().getValueAt(setar, 3).toString());
+        txt_id.setText(tabelaCliente.getModel().getValueAt(setar, 0).toString());
+        txtNome.setText(tabelaCliente.getModel().getValueAt(setar, 1).toString());
+        txtCpf.setText(tabelaCliente.getModel().getValueAt(setar, 2).toString());
+        txtEndereco.setText(tabelaCliente.getModel().getValueAt(setar, 3).toString());
+        txtTelefone.setText(tabelaCliente.getModel().getValueAt(setar, 4).toString());
         
     }
     
     private void excluirCliente(){
-        String cpf_cliente=txtCpf.getText();
+        int id_cliente=Integer.parseInt(txtId.getText());
         
         clienteDTO objclienteDTO = new clienteDTO();
-        objclienteDTO.setCpf_cliente(cpf_cliente);
+        objclienteDTO.setId_cliente(id_cliente);
         
         clienteDAO objclienteDAO = new clienteDAO();
         objclienteDAO.excluirCliente(objclienteDTO);

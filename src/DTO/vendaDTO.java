@@ -42,8 +42,8 @@ public class vendaDTO {
     public void setNome_cliente(String nome_cliente) {
         this.nome_cliente = nome_cliente;
     }
-    private int id_venda, qtd_venda, cod_funcionario, item_venda;
-    private String hora_venda, data_venda, cod_cliente, valor_venda, nome_cliente;
+    private int id_venda, qtd_venda, cod_funcionario, item_venda, cod_cliente;
+    private String hora_venda, data_venda, valor_venda, nome_cliente;
 
     /**
      * @return the id_venda
@@ -109,14 +109,14 @@ public class vendaDTO {
     /**
      * @return the cod_cliente
      */
-    public String getCod_cliente() {
+    public int getCod_cliente() {
         return cod_cliente;
     }
 
     /**
      * @param cod_cliente the cod_cliente to set
      */
-    public void setCod_cliente(String cod_cliente) {
+    public void setCod_cliente(int cod_cliente) {
         this.cod_cliente = cod_cliente;
     }
 

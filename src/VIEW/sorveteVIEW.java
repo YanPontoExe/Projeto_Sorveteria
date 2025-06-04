@@ -422,8 +422,8 @@ public class sorveteVIEW extends javax.swing.JFrame {
     }
     
     private void alterarSorvete(){
-        int id_sorvete, cod_calda;
-        String tipo_sorvete, preco_sorvete, sabor_sorvete;
+        int id_sorvete;
+        String preco_sorvete, sabor_sorvete;
         
         id_sorvete=Integer.parseInt(txtId.getText());
         preco_sorvete=txtPreco.getText();
@@ -449,7 +449,6 @@ public class sorveteVIEW extends javax.swing.JFrame {
         objsorveteDAO.excluirSorvete(objsorveteDTO);
     }
     
-    Vector<Integer> id_calda = new Vector<Integer>();
    
    
    
