@@ -1,0 +1,55 @@
+O sistema representa o controle de estoque de sorvetes em uma sorveteria que vende potes de sorvete, sem mexer com a parte financeira, apenas focado no estoque, com foco no registro de saídas, funcionários e produtos vendidos e preferências dos clientes, e cada venda é realizada por um funcionário.
+
+Quando um cliente realiza uma compra, o sistema registra uma venda com a data, o funcionário responsável e o cliente atendido. A venda é composta por um ou mais sorvetes, cada um com informações como marca, sabor e preço. O sistema permite associar múltiplos sorvetes a uma única venda, o que viabiliza o registro detalhado dos itens adquiridos. O valor total da venda é calculado com base nos produtos incluídos, e é utilizado apenas para fins de registro.
+
+Funcionários são responsáveis por efetuar as vendas, e seus dados, como nome e CPF, ficam armazenados para fins de controle e auditoria. Os clientes também têm seus dados registrados, incluindo nome, CPF, telefone e endereço, possibilitando a identificação e personalização no atendimento.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+O sistema é responsável por gerenciar a venda de sorvetes personalizados, permitindo o registro das movimentações realizadas entre clientes e a sorveteria. 
+Ele controla os sorvetes disponíveis, os funcionários que efetuam as vendas.
+
+Ao realizar uma venda, o sistema registra qual funcionário efetuou a venda, a data da venda e quais produtos foram adquiridos. 
+
+O sistema garante que cada venda esteja vinculada a um cliente e a um funcionário, além de detalhar os itens envolvidos na transação, como tipo de sorvete, sabor, preço e caldas utilizadas.
+
+O sistema possibilita o controle eficiente de estoque e vendas, acompanhamento de desempenho dos funcionários, preferências dos clientes, além de fornecer dados consistentes para análise gerencial e tomada de decisão. Ele assegura a rastreabilidade de todas as vendas realizadas e permite personalização no atendimento por meio do detalhamento dos produtos escolhidos em cada transação. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
