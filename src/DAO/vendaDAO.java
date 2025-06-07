@@ -153,7 +153,7 @@ public class vendaDAO {
         public ResultSet listarCodCli() {
             conn = new conexaodaO().conectabD();
 
-            String Sql = "SELECT id_cliente FROM tb_cliente cli ORDER BY cli.nome_cliente";
+            String Sql = "SELECT * FROM tb_cliente cli ORDER BY cli.nome_cliente";
 
             try {
                 pstm = conn.prepareStatement(Sql);

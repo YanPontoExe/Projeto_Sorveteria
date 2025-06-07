@@ -6,6 +6,7 @@
 package VIEW;
 
 import DAO.funcionarioDAO;
+import VIEW.clienteVIEW;
 import DAO.sorveteDAO;
 import DAO.vendaDAO;
 import DTO.clienteDTO;
@@ -78,6 +79,7 @@ public class vendaVIEW extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtQtd = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btnNewCliente = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +174,6 @@ public class vendaVIEW extends javax.swing.JFrame {
 
         txtValor.setBackground(new java.awt.Color(255, 102, 102));
         txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        txtValor.setText("");
         txtValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorActionPerformed(evt);
@@ -328,6 +329,14 @@ public class vendaVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnNewCliente.setBackground(new java.awt.Color(255, 102, 102));
+        btnNewCliente.setText("+ Novo Cliente");
+        btnNewCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -337,6 +346,8 @@ public class vendaVIEW extends javax.swing.JFrame {
                 .addGap(350, 350, 350)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNewCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -346,7 +357,8 @@ public class vendaVIEW extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(btnNewCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(269, 269, 269))
@@ -422,6 +434,13 @@ public class vendaVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxCpfActionPerformed
 
+    private void btnNewClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewClienteActionPerformed
+        clienteVIEW cliente = new clienteVIEW();
+        
+        cliente.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNewClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -463,6 +482,7 @@ public class vendaVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnCarregarCampos;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnNewCliente;
     private javax.swing.JComboBox<String> cbxCodcli;
     private javax.swing.JComboBox<String> cbxCodfun;
     private javax.swing.JComboBox<String> cbxCpf;
@@ -489,6 +509,15 @@ public class vendaVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField txtQtd;
     private javax.swing.JFormattedTextField txtValor;
     // End of variables declaration//GEN-END:variables
+
+
+    Vector<Integer> id_funcionario = new Vector<Integer>();
+    Vector<Integer> id_cliente = new Vector<Integer>();
+    Vector<Integer> id_sorvete = new Vector<Integer>();
+   
+    Vector<funcionarioDTO> lista_funcionarios = new Vector<funcionarioDTO>();
+    Vector<sorveteDTO> lista_sorvetes = new Vector<sorveteDTO>();
+    Vector<clienteDTO> lista_cliente = new Vector<clienteDTO>();
 
     
     private void cadastrarVenda(){
@@ -562,7 +591,7 @@ public class vendaVIEW extends javax.swing.JFrame {
         
        
         txtId.setText(tabelaVenda.getModel().getValueAt(setar, 0).toString());
-        cbxCodfun.setSelectedItem(tabelaVenda.getModel().getValueAt(setar, 1).toString());
+        cbxCodfun.setSelectedItem(tabelaVenda.getModel().getValueAt(setar, 1));
         txtData.setText(tabelaVenda.getModel().getValueAt(setar, 2).toString());
         cbxCpf.setSelectedItem(tabelaVenda.getModel().getValueAt(setar, 3).toString());
         cbxItem.setSelectedItem(tabelaVenda.getModel().getValueAt(setar, 4).toString());
@@ -607,15 +636,6 @@ public class vendaVIEW extends javax.swing.JFrame {
         objvendaDAO.excluirVenda(objvendaDTO);
     }
    
-  
-   Vector<Integer> id_funcionario = new Vector<Integer>();
-   Vector<Integer> _cliente = new Vector<Integer>();
-   Vector<Integer> id_sorvete = new Vector<Integer>();
-   
-   Vector<funcionarioDTO> lista_funcionarios = new Vector<funcionarioDTO>();
-   Vector<sorveteDTO> lista_sorvetes = new Vector<sorveteDTO>();
-   Vector<clienteDTO> lista_cliente = new Vector<clienteDTO>();
-   
    
    private void restaurarDadosCbxCodFun() {
         try {
@@ -645,6 +665,7 @@ public class vendaVIEW extends javax.swing.JFrame {
            
            while(rs.next()) {
                sorveteDTO sorvete = new sorveteDTO();
+               
                sorvete.setId_sorvete(rs.getInt("id_sorvete"));
                sorvete.setPreco_sorvete(rs.getString("preco_sorvete"));
                sorvete.setSabor_sorvete(rs.getString("sabor_sorvete"));
@@ -661,7 +682,8 @@ public class vendaVIEW extends javax.swing.JFrame {
 
    
    private void restaurarDadosCbxCodCli() {
-        try {           vendaDAO objvendaDAO = new vendaDAO();
+        try {           
+            vendaDAO objvendaDAO = new vendaDAO();
            ResultSet rs = objvendaDAO.listarCodCli();
            
            while(rs.next()) {
@@ -674,7 +696,7 @@ public class vendaVIEW extends javax.swing.JFrame {
                cliente.setTelefone_cliente(rs.getString("telefone_cliente"));
                
                lista_cliente.addElement(cliente);
-               _cliente.addElement(rs.getInt(1));
+               id_cliente.addElement(rs.getInt(1));
                cbxCpf.addItem(cliente.getNome_cliente());
            }
            

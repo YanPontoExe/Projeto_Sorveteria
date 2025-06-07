@@ -29,10 +29,10 @@ public class frmprincipalVIEW extends javax.swing.JFrame {
     private void initComponents() {
 
         btnSabor = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnCliente = new javax.swing.JButton();
         btnSorvete = new javax.swing.JButton();
         btnVendas = new javax.swing.JButton();
         btnFuncionario = new javax.swing.JButton();
@@ -46,14 +46,6 @@ public class frmprincipalVIEW extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
-
-        jLabel1.setText("M E N U   D E   O P Ç Õ E S");
-
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
-
         btnCliente.setBackground(new java.awt.Color(255, 102, 102));
         btnCliente.setText("CLIENTE");
         btnCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +53,14 @@ public class frmprincipalVIEW extends javax.swing.JFrame {
                 btnClienteActionPerformed(evt);
             }
         });
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+
+        jLabel1.setText("M E N U   D E   O P Ç Õ E S");
+
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
         btnSorvete.setBackground(new java.awt.Color(255, 102, 102));
         btnSorvete.setText("SORVETES");
@@ -91,28 +91,23 @@ public class frmprincipalVIEW extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGap(128, 128, 128)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSorvete, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
-                .addGap(55, 55, 55))
+                    .addComponent(btnFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSorvete, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFuncionario)
-                    .addComponent(btnCliente))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSorvete)
-                    .addComponent(btnVendas))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addGap(89, 89, 89)
+                .addComponent(btnFuncionario)
+                .addGap(18, 18, 18)
+                .addComponent(btnVendas)
+                .addGap(18, 18, 18)
+                .addComponent(btnSorvete)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
@@ -128,9 +123,9 @@ public class frmprincipalVIEW extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(125, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(51, 51, 51)
+                .addGap(59, 59, 59)
                 .addComponent(jButton1)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

@@ -72,6 +72,7 @@ public class clienteDAO {
             
             while(rs.next()){
                     clienteDTO objclienteDTO = new clienteDTO();
+                    
                     objclienteDTO.setId_cliente(rs.getInt("id_cliente"));
                     objclienteDTO.setNome_cliente(rs.getNString("nome_cliente"));
                     objclienteDTO.setCpf_cliente(rs.getNString("cpf_cliente"));
