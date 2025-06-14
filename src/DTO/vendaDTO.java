@@ -1,5 +1,8 @@
 package DTO;
 public class vendaDTO {
+    private int id_venda, cod_funcionario, item_venda, cod_cliente, qtd_venda;
+    private String hora_venda, data_venda, nome_cliente;
+    float valor_venda;
 
     /**
      * @return the qtd_venda
@@ -42,8 +45,6 @@ public class vendaDTO {
     public void setNome_cliente(String nome_cliente) {
         this.nome_cliente = nome_cliente;
     }
-    private int id_venda, qtd_venda, cod_funcionario, item_venda, cod_cliente;
-    private String hora_venda, data_venda, valor_venda, nome_cliente;
 
     /**
      * @return the id_venda
@@ -123,14 +124,14 @@ public class vendaDTO {
     /**
      * @return the valor_venda
      */
-    public String getValor_venda() {
+    public float getValor_venda() {
         return valor_venda;
     }
 
     /**
      * @param valor_venda the valor_venda to set
      */
-    public void setValor_venda(String valor_venda) {
+    public void setValor_venda(float valor_venda) {
         this.valor_venda = valor_venda;
     }
 }

@@ -1,7 +1,8 @@
 package DTO;
 public class sorveteDTO {
     private int id_sorvete, cod_calda;
-    private String tipo_sorvete, preco_sorvete, sabor_sorvete;
+    private String tipo_sorvete, sabor_sorvete;
+    float preco_sorvete;
 
     /**
      * @return the id_sorvete
@@ -34,14 +35,14 @@ public class sorveteDTO {
     /**
      * @return the preco_sorvete
      */
-    public String getPreco_sorvete() {
+    public float getPreco_sorvete() {
         return preco_sorvete;
     }
 
     /**
      * @param preco_sorvete the preco_sorvete to set
      */
-    public void setPreco_sorvete(String preco_sorvete) {
+    public void setPreco_sorvete(float preco_sorvete) {
         this.preco_sorvete = preco_sorvete;
     }
 

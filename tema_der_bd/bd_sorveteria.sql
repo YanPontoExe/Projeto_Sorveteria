@@ -24,7 +24,7 @@ descricao_sabor varchar(20)
 create table tb_sorvete(
 id_sorvete int primary key auto_increment,
 tipo_sorvete varchar(8),
-preco_sorvete varchar(7),
+preco_sorvete float,
 sabor_sorvete varchar(15)
 );
 
@@ -62,4 +62,4 @@ select * from tb_sorvete
 SELECT * FROM tb_venda
 SELECT * FROM tb_usuario
 
-DROP TABLE tb_calda
+DROP TABLE tb_sorvete

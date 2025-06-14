@@ -150,6 +150,7 @@ public class sorveteVIEW extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtPreco.setText("  ,  ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -361,9 +362,10 @@ public class sorveteVIEW extends javax.swing.JFrame {
     private void cadastrarSorvete(){
         sorveteDTO objsorveteDTO = new sorveteDTO();
         
-        String  preco, sabor;
+        String  sabor;
+        float preco;
         
-        preco=txtPreco.getText();
+        preco=Float.parseFloat(txtPreco.getText());
         sabor=txtSabor.getText();
         
         
@@ -423,10 +425,11 @@ public class sorveteVIEW extends javax.swing.JFrame {
     
     private void alterarSorvete(){
         int id_sorvete;
-        String preco_sorvete, sabor_sorvete;
+        String sabor_sorvete;
+        float preco_sorvete;
         
         id_sorvete=Integer.parseInt(txtId.getText());
-        preco_sorvete=txtPreco.getText();
+        preco_sorvete=Float.parseFloat(txtPreco.getText());
         sabor_sorvete=txtSabor.getText();
         
         sorveteDTO objsorveteDTO = new sorveteDTO();

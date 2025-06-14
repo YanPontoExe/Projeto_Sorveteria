@@ -248,6 +248,7 @@ public class clienteVIEW extends javax.swing.JFrame {
             }
         });
 
+        txt_id.setEditable(false);
         txt_id.setBackground(new java.awt.Color(255, 102, 102));
 
         jLabel6.setText("Id:");
@@ -261,8 +262,8 @@ public class clienteVIEW extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel6)
                 .addGap(32, 32, 32)
-                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(177, 177, 177)
+                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)

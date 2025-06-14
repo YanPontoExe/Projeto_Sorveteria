@@ -23,7 +23,7 @@ public class sorveteDAO {
 
             try {
                 pstm = conn.prepareStatement(sql);
-                pstm.setString(1, objsorveteDTO.getPreco_sorvete());
+                pstm.setFloat(1, objsorveteDTO.getPreco_sorvete());
                 pstm.setString(2, objsorveteDTO.getSabor_sorvete());
                 
                 JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso! ");
@@ -51,7 +51,7 @@ public class sorveteDAO {
             while(rs.next()){
                     sorveteDTO objsorveteDTO = new sorveteDTO();
                     objsorveteDTO.setId_sorvete(rs.getInt("id_sorvete"));
-                    objsorveteDTO.setPreco_sorvete(rs.getString("preco_sorvete"));
+                    objsorveteDTO.setPreco_sorvete(rs.getFloat("preco_sorvete"));
                     objsorveteDTO.setSabor_sorvete(rs.getString("sabor_sorvete"));
                     
                     
@@ -72,7 +72,7 @@ public class sorveteDAO {
 
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(0, objsorveteDTO.getPreco_sorvete());
+            pstm.setFloat(0, objsorveteDTO.getPreco_sorvete());
             pstm.setString(1, objsorveteDTO.getSabor_sorvete());
             pstm.setInt(2, objsorveteDTO.getId_sorvete());
             

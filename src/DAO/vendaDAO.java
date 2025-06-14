@@ -31,7 +31,7 @@ public class vendaDAO {
                 pstm.setInt(2, objvendaDTO.getCod_funcionario());
                 pstm.setString(3, objvendaDTO.getData_venda());
                 pstm.setInt(4, objvendaDTO.getCod_cliente());
-                pstm.setString(5, objvendaDTO.getValor_venda());
+                pstm.setFloat(5, objvendaDTO.getValor_venda());
                 pstm.setInt(6, objvendaDTO.getItem_venda());
                 pstm.setInt(7, objvendaDTO.getQtd_venda());
                 
@@ -64,7 +64,7 @@ public class vendaDAO {
                     objvendaDTO.setCod_cliente(rs.getInt("cod_cliente"));
                     objvendaDTO.setItem_venda(rs.getInt("cod_sorvete"));
                     objvendaDTO.setQtd_venda(rs.getInt("qtd_venda"));
-                    objvendaDTO.setValor_venda(rs.getString("valor_venda"));
+                    objvendaDTO.setValor_venda(rs.getFloat("valor_venda"));
                     
                     
                     lista.add(objvendaDTO);
@@ -86,7 +86,7 @@ public class vendaDAO {
             pstm.setInt(1, objvendaDTO.getCod_funcionario());
             pstm.setInt(2, objvendaDTO.getCod_cliente());
             pstm.setString(3, objvendaDTO.getData_venda());
-            pstm.setString(4, objvendaDTO.getValor_venda());
+            pstm.setFloat(4, objvendaDTO.getValor_venda());
             pstm.setInt(5, objvendaDTO.getItem_venda());
             pstm.setInt(6, objvendaDTO.getQtd_venda());
             pstm.setInt(7, objvendaDTO.getId_venda());
