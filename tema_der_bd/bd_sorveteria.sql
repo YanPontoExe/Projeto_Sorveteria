@@ -16,15 +16,14 @@ endereco_cliente varchar(60),
 telefone_cliente varchar(15)
 );
 
-create table tb_sabor(
-id_sabor int primary key auto_increment,
-descricao_sabor varchar(20)
-);
-
 create table tb_sorvete(
 id_sorvete int primary key auto_increment,
+<<<<<<< HEAD
 tipo_sorvete varchar(8),
 preco_sorvete float,
+=======
+preco_sorvete varchar(7),
+>>>>>>> 8593d4701fef4ed319dbf62e51cb13dea2abf07a
 sabor_sorvete varchar(15)
 );
 
