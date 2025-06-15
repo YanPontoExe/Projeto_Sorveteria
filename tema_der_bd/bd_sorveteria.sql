@@ -18,12 +18,7 @@ telefone_cliente varchar(15)
 
 create table tb_sorvete(
 id_sorvete int primary key auto_increment,
-<<<<<<< HEAD
-tipo_sorvete varchar(8),
 preco_sorvete float,
-=======
-preco_sorvete varchar(7),
->>>>>>> 8593d4701fef4ed319dbf62e51cb13dea2abf07a
 sabor_sorvete varchar(15)
 );
 
@@ -53,12 +48,17 @@ senha_usuario VARCHAR(15)
 INSERT INTO tb_cliente (cpf_cliente, nome_cliente, endereco_cliente, telefone_cliente)
 values("000.000.000-00", "Padrão", "xxx", "(00) 00000-0000")
 
+/*
+
+INSERT INTO tb_sorvete (tipo_sorvete, preco_sorvete, sabor_sorvete)
+VALUES("", 10.00, "morango")
+
 
 select * from tb_funcionario
 select * from tb_cliente
-select * from tb_sabor
 select * from tb_sorvete
 SELECT * FROM tb_venda
 SELECT * FROM tb_usuario
 
-DROP TABLE tb_sorvete
+DROP TABLE tb_venda
+DROP TABLE tb_funcionario

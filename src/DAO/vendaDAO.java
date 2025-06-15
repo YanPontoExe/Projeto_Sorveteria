@@ -138,7 +138,7 @@ public class vendaDAO {
         public ResultSet listarItem() {
             conn = new conexaodaO().conectabD();
 
-            String sql = "SELECT * FROM tb_sorvete sor ORDER BY sor.sabor_sorvete";
+            String sql = "SELECT * FROM tb_sorvete sor ORDER BY sor.id_sorvete";
 
             try {
                 pstm = conn.prepareStatement(sql);

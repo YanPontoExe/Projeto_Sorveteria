@@ -519,8 +519,9 @@ public class vendaVIEW extends javax.swing.JFrame {
     Vector<sorveteDTO> lista_sorvetes = new Vector<sorveteDTO>();
     Vector<clienteDTO> lista_cliente = new Vector<clienteDTO>();
     
-    sorveteDTO sorvete = new sorveteDTO();
+  
 
+        sorveteDTO sorvete = new sorveteDTO();
     
     private void cadastrarVenda(){
         vendaDTO objvendaDTO= new vendaDTO();
@@ -535,8 +536,7 @@ public class vendaVIEW extends javax.swing.JFrame {
         item=lista_sorvetes.get(cbxItem.getSelectedIndex()).getId_sorvete();
         qtd=Integer.parseInt(txtQtd.getText());
         //valor_venda=Float.parseFloat(txtValor.getText());
-        
-        valor_venda = (float) qtd * sorvete.getPreco_sorvete();
+        valor_venda = qtd * sorvete.getPreco_sorvete();
         
         
         objvendaDTO.setCod_funcionario(cod_fun);
@@ -670,7 +670,6 @@ public class vendaVIEW extends javax.swing.JFrame {
            ResultSet rs = objvendaDAO.listarItem();
            
            while(rs.next()) {
-               
                
                sorvete.setId_sorvete(rs.getInt("id_sorvete"));
                sorvete.setPreco_sorvete(rs.getFloat("preco_sorvete"));
