@@ -20,20 +20,20 @@ public class vendaDAO {
         ArrayList<vendaDTO> lista = new ArrayList<>();
 
         public void cadastrarVenda(vendaDTO objvendaDTO) {
-            String sql = "insert into tb_venda(id_venda, cod_funcionario, data_venda, cod_cliente, valor_venda, cod_sorvete, qtd_venda) values (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into tb_venda(cod_funcionario, data_venda, cod_cliente, valor_venda, cod_sorvete, qtd_venda) values (?, ?, ?, ?, ?, ?)";
 
             conn = new conexaodaO().conectabD();
             
 
             try {
                 pstm = conn.prepareStatement(sql);
-                pstm.setInt(1, objvendaDTO.getId_venda());
-                pstm.setInt(2, objvendaDTO.getCod_funcionario());
-                pstm.setString(3, objvendaDTO.getData_venda());
-                pstm.setInt(4, objvendaDTO.getCod_cliente());
-                pstm.setFloat(5, objvendaDTO.getValor_venda());
-                pstm.setInt(6, objvendaDTO.getItem_venda());
-                pstm.setInt(7, objvendaDTO.getQtd_venda());
+                //pstm.setInt(1, objvendaDTO.getId_venda());
+                pstm.setInt(1, objvendaDTO.getCod_funcionario());
+                pstm.setString(2, objvendaDTO.getData_venda());
+                pstm.setInt(3, objvendaDTO.getCod_cliente());
+                pstm.setFloat(4, objvendaDTO.getValor_venda());
+                pstm.setInt(5, objvendaDTO.getItem_venda());
+                pstm.setInt(6, objvendaDTO.getQtd_venda());
                 
 
                 pstm.execute();

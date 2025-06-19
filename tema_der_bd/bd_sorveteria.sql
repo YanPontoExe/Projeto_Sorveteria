@@ -32,10 +32,10 @@ sabor_sorvete varchar(15)
 
 create table tb_venda(
 id_venda int primary key AUTO_INCREMENT,
-cod_funcionario int not null,
+cod_funcionario int not NULL,
 cod_cliente int not null,
 data_venda VARCHAR(10),
-valor_venda VARCHAR(9),
+valor_venda FLOAT,
 cod_sorvete INT NOT NULL,
 qtd_venda INT NOT NULL,
 CONSTRAINT fk_fun FOREIGN KEY (cod_funcionario) REFERENCES tb_funcionario(id_funcionario),

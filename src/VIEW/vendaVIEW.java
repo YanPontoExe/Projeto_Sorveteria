@@ -511,13 +511,13 @@ public class vendaVIEW extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-    Vector<Integer> id_funcionario = new Vector<Integer>();
-    Vector<Integer> id_cliente = new Vector<Integer>();
-    Vector<Integer> id_sorvete = new Vector<Integer>();
+    Vector<Integer> id_funcionario = new Vector<>();
+    Vector<Integer> id_cliente = new Vector<>();
+    Vector<Integer> id_sorvete = new Vector<>();
    
-    Vector<funcionarioDTO> lista_funcionarios = new Vector<funcionarioDTO>();
-    Vector<sorveteDTO> lista_sorvetes = new Vector<sorveteDTO>();
-    Vector<clienteDTO> lista_cliente = new Vector<clienteDTO>();
+    Vector<funcionarioDTO> lista_funcionarios = new Vector<>();
+    Vector<sorveteDTO> lista_sorvetes = new Vector<>();
+    Vector<clienteDTO> lista_cliente = new Vector<>();
     
   
 
