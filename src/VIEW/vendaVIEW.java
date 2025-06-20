@@ -510,18 +510,85 @@ public class vendaVIEW extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtValor;
     // End of variables declaration//GEN-END:variables
 
-
-    Vector<Integer> id_funcionario = new Vector<>();
-    Vector<Integer> id_cliente = new Vector<>();
-    Vector<Integer> id_sorvete = new Vector<>();
-   
-    Vector<funcionarioDTO> lista_funcionarios = new Vector<>();
-    Vector<sorveteDTO> lista_sorvetes = new Vector<>();
-    Vector<clienteDTO> lista_cliente = new Vector<>();
     
-  
+    
+    
+    Vector<Integer> id_funcionario = new Vector<Integer>();
+    Vector<Integer> id_cliente = new Vector<Integer>();
+    Vector<Integer> id_sorvete = new Vector<Integer>();
+   
+    Vector<funcionarioDTO> lista_funcionarios = new Vector<funcionarioDTO>();
+    Vector<sorveteDTO> lista_sorvetes = new Vector<sorveteDTO>();
+    Vector<clienteDTO> lista_cliente = new Vector<clienteDTO>();
+    
+    private void restaurarDadosCbxCodFun() {
+        try {
+           vendaDAO objvendaDAO = new vendaDAO();
+           ResultSet rs = objvendaDAO.listarCodFun();
+           
+           while(rs.next()) {
+               funcionarioDTO funcionario = new funcionarioDTO();
+               funcionario.setId_funcionario(rs.getInt("id_funcionario"));
+               funcionario.setCpf_funcionario(rs.getString("cpf_funcionario"));
+               funcionario.setNome_funcionario(rs.getString("nome_funcionario"));
+               
+               lista_funcionarios.addElement(funcionario);
+               id_funcionario.addElement(rs.getInt(1));
+               cbxCodfun.addItem(funcionario.getNome_funcionario());
+           }
+           
+        } catch(SQLException err) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
+        }
+}
+   
+ private void restaurarDadosCbxItem() {
+        try {
+           vendaDAO objvendaDAO = new vendaDAO();
+           ResultSet rs = objvendaDAO.listarItem();
+           
+           while(rs.next()) {
+               
+               sorvete.setId_sorvete(rs.getInt("id_sorvete"));
+               sorvete.setPreco_sorvete(rs.getFloat("preco_sorvete"));
+               sorvete.setSabor_sorvete(rs.getString("sabor_sorvete"));
+               
+               lista_sorvetes.addElement(sorvete);
+               id_sorvete.addElement(rs.getInt(1));
+               cbxItem.addItem(sorvete.getSabor_sorvete());
+           }
+           
+        } catch(SQLException err) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
+        }
+}
 
-        sorveteDTO sorvete = new sorveteDTO();
+   
+   private void restaurarDadosCbxCodCli() {
+        try {           
+            vendaDAO objvendaDAO = new vendaDAO();
+           ResultSet rs = objvendaDAO.listarCodCli();
+           
+           while(rs.next()) {
+               clienteDTO cliente = new clienteDTO();
+               
+               cliente.setId_cliente(rs.getInt("id_cliente"));
+               cliente.setCpf_cliente(rs.getString("cpf_cliente"));
+               cliente.setNome_cliente(rs.getString("nome_cliente"));
+               cliente.setEndereco_cliente(rs.getString("endereco_cliente"));
+               cliente.setTelefone_cliente(rs.getString("telefone_cliente"));
+               
+               lista_cliente.addElement(cliente);
+               id_cliente.addElement(rs.getInt(1));
+               cbxCpf.addItem(cliente.getNome_cliente());
+           }
+           
+        } catch(SQLException err) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
+        }
+    }
+
+            sorveteDTO sorvete = new sorveteDTO();
     
     private void cadastrarVenda(){
         vendaDTO objvendaDTO= new vendaDTO();
@@ -535,8 +602,7 @@ public class vendaVIEW extends javax.swing.JFrame {
         nome_cli=lista_cliente.get(cbxCodcli.getSelectedIndex()).getId_cliente();
         item=lista_sorvetes.get(cbxItem.getSelectedIndex()).getId_sorvete();
         qtd=Integer.parseInt(txtQtd.getText());
-        //valor_venda=Float.parseFloat(txtValor.getText());
-        valor_venda = qtd * sorvete.getPreco_sorvete();
+        valor_venda = qtd * lista_sorvetes.get(cbxItem.getSelectedIndex()).getPreco_sorvete();
         
         
         objvendaDTO.setCod_funcionario(cod_fun);
@@ -643,72 +709,7 @@ public class vendaVIEW extends javax.swing.JFrame {
     }
    
    
-   private void restaurarDadosCbxCodFun() {
-        try {
-           vendaDAO objvendaDAO = new vendaDAO();
-           ResultSet rs = objvendaDAO.listarCodFun();
-           
-           while(rs.next()) {
-               funcionarioDTO funcionario = new funcionarioDTO();
-               funcionario.setId_funcionario(rs.getInt("id_funcionario"));
-               funcionario.setCpf_funcionario(rs.getString("cpf_funcionario"));
-               funcionario.setNome_funcionario(rs.getString("nome_funcionario"));
-               
-               lista_funcionarios.addElement(funcionario);
-               id_funcionario.addElement(rs.getInt(1));
-               cbxCodfun.addItem(funcionario.getNome_funcionario());
-           }
-           
-        } catch(SQLException err) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
-        }
-}
    
- private void restaurarDadosCbxItem() {
-        try {
-           vendaDAO objvendaDAO = new vendaDAO();
-           ResultSet rs = objvendaDAO.listarItem();
-           
-           while(rs.next()) {
-               
-               sorvete.setId_sorvete(rs.getInt("id_sorvete"));
-               sorvete.setPreco_sorvete(rs.getFloat("preco_sorvete"));
-               sorvete.setSabor_sorvete(rs.getString("sabor_sorvete"));
-               
-               lista_sorvetes.addElement(sorvete);
-               id_sorvete.addElement(rs.getInt(1));
-               cbxItem.addItem(sorvete.getSabor_sorvete());
-           }
-           
-        } catch(SQLException err) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
-        }
-}
-
-   
-   private void restaurarDadosCbxCodCli() {
-        try {           
-            vendaDAO objvendaDAO = new vendaDAO();
-           ResultSet rs = objvendaDAO.listarCodCli();
-           
-           while(rs.next()) {
-               clienteDTO cliente = new clienteDTO();
-               
-               cliente.setId_cliente(rs.getInt("id_cliente"));
-               cliente.setCpf_cliente(rs.getString("cpf_cliente"));
-               cliente.setNome_cliente(rs.getString("nome_cliente"));
-               cliente.setEndereco_cliente(rs.getString("endereco_cliente"));
-               cliente.setTelefone_cliente(rs.getString("telefone_cliente"));
-               
-               lista_cliente.addElement(cliente);
-               id_cliente.addElement(rs.getInt(1));
-               cbxCpf.addItem(cliente.getNome_cliente());
-           }
-           
-        } catch(SQLException err) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar o ComboBox " + err.getMessage()); 
-        }
-}
    
    
     

@@ -14,7 +14,6 @@ public class sorveteDAO {
         PreparedStatement pstm;
         ResultSet rs;
         ArrayList<sorveteDTO> lista = new ArrayList<>();
-    private int cod_calda;
 
         public void cadastrarSorvete(sorveteDTO objsorveteDTO) {
             String sql = "insert into tb_sorvete(preco_sorvete, sabor_sorvete) values (?, ?)";
